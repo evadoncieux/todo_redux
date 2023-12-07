@@ -12,34 +12,34 @@ const TodoList = () => {
 
     const handleInput = (e) => {
         setContent(e.target.value);
-        console.log([todos]);
     };
 
     const handleAddition = () => {
         if (content) {
             dispatch(addItem(content));
             setContent("");
-            // console.log('test');
         }
     };
 
     return (
-        <div className="todo-input">
-            {count}
-            <input type="text" value={content} onChange={handleInput} />
-            <button onClick={handleAddition}>Add</button>
-            {count > 0 && (
-                <ul>
-                    {todos.map((todo) => (
-                        <TodoItem
-                            key={todo.id}
-                            content={todo.content}
-                            id={todo.id}
-                        />
-                    ))}
-                </ul>
-            )}
-            {count === 0 && <p>No todos</p>}
+        <div>
+            <h1>TODOS ({count})</h1>
+            <div className="todo-input">
+                <input type="text" value={content} onChange={handleInput} />
+                <button onClick={handleAddition}>Add</button>
+                {count > 0 && (
+                    <ul>
+                        {todos.map((todo) => (
+                            <TodoItem
+                                key={todo.id}
+                                content={todo.content}
+                                id={todo.id}
+                            />
+                        ))}
+                    </ul>
+                )}
+                {count === 0 && <p>No todos</p>}
+            </div>
         </div>
     );
 };

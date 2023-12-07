@@ -1,10 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
+/* eslint-disable react/prop-types */
+import { useDispatch } from "react-redux";
 import { toggleDone, deleteItem } from "../slices/todoSlice.js";
 
 const TodoItem = (props) => {
-    console.log(props);
-
-    const todos = useSelector((state) => state.todos || []);
     const dispatch = useDispatch();
 
     const handleDone = (id) => {
@@ -27,7 +25,7 @@ const TodoItem = (props) => {
                     />
                     <span className="slider"></span>
                     <button onClick={() => dispatch(handleDelete(props.id))}>
-                        Delete
+                        <FontAwesomeIcon icon="fa-solid fa-trash" />
                     </button>
                 </label>
             </li>

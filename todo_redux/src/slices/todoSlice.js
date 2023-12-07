@@ -18,7 +18,6 @@ export const todoSlice = createSlice({
                 completed: false,
             };
             state.todos = [...state.todos, newTodo];
-            console.log(state.todos);
             state.count += 1;
         },
         // edit: (state, action) => {
@@ -33,7 +32,7 @@ export const todoSlice = createSlice({
         deleteItem: (state, action) => {
             const index = state.findIndex((item) => item.id === action.payload);
             if (index !== -1) {
-                state.splice(index, 1)
+                state.pop(index, 1)
             }
         },
     },
