@@ -18,6 +18,7 @@ export const todoSlice = createSlice({
                 completed: false,
             };
             state.todos = [...state.todos, newTodo];
+            console.log(state.todos);
             state.count += 1;
         },
         // edit: (state, action) => {
